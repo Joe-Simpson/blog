@@ -9,7 +9,9 @@ class PostController extends Controller
 {
     public function index()
     {
-    	return view('posts.index');
+        $posts = Post::all();
+        // dd($posts);
+    	return view('posts.index', compact('posts'));
     }
 
     public function create()
@@ -19,18 +21,10 @@ class PostController extends Controller
 
     public function store()
     {
-    	// dd(request()->all());
-    	// create a new post
-    	$post = new Post;
-
-    	$post->title = request('title');
-    	$post->body = request('body');
-
-    	// save to the database
-
-    	$post->save();
-
-    	// return to homepage
+    	Post::create([
+            'title' => request('title'),
+            'body' => request('body')
+        ]);
 
     	return redirect('/');
     }

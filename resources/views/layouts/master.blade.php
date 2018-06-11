@@ -26,6 +26,7 @@
 
             @include ('layouts.sidebar')
         </div>
+        <a href="/posts/create"><button class="btn btn-primary">Publish</button></a>
     </main>
     
     @include ('layouts.footer')
