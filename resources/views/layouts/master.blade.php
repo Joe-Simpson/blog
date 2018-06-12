@@ -13,7 +13,7 @@
 
     <!-- Custom styles for this template -->
     <link href="https://fonts.googleapis.com/css?family=Playfair+Display:700,900" rel="stylesheet">
-    <link href="/css/blog.css" rel="stylesheet">
+    <link href="/css/app.css" rel="stylesheet">
   </head>
 
   <body>
@@ -21,12 +21,14 @@
     @include ('layouts.nav')
 
     <main role="main" class="container">
+        <div class="row justify-content-end">
+            <a href="/posts/create"><button class="btn btn-primary">Publish New</button></a>
+        </div>
         <div class="row">
             @yield ('content')
 
             @include ('layouts.sidebar')
         </div>
-        <a href="/posts/create"><button class="btn btn-primary">Publish</button></a>
     </main>
     
     @include ('layouts.footer')
