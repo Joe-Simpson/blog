@@ -16,10 +16,12 @@ class SessionController extends Controller
     public function store()
     {
     	
-
-    	auth()->attempt(request(['email','password']));
-
-    	dd(auth()->attempt(request(['email','password'])));
+    	if(! auth()->attempt(request(['email','password'])))
+    	{
+    		return back()->withErrors([
+    			'message' => 'Please check you credentials and try again.'
+    		]);
+    	}
 
     	return redirect()->home();
     }
